@@ -1,0 +1,45 @@
+<div class="flexbox-panel">
+    
+        <mat-card class="cards mat-elevation-z3" style="margin-top:4em;">
+        
+            <h1>Deadline festlegen</h1>
+            <mat-form-field class="datepicker">
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        
+        
+    </mat-card>
+
+
+    <mat-card class="cards mat-elevation-z3">
+        <h1>Nachricht an alle Lehrer senden</h1>
+            <mat-form-field class="datepicker">
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+    </mat-card>
+
+    <mat-card class="cards mat-elevation-z3" style="margin-bottom: 10em; height: 30em;"> 
+        <h1>Nachricht an alle Lehrer senden</h1>
+        <form class="message-form">
+            <mat-form-field class="email-box" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="z.B.: Rosemarie Brenn, Hans-Christian Hammer,...">
+            </mat-form-field>
+          
+            <mat-form-field class="commentary-box" appearance="fill">
+              <mat-label>Nachricht hier eingeben...</mat-label>
+              <textarea matInput placeholder="Nachrichtentext"></textarea>
+            </mat-form-field>
+          </form>
+          <button mat-raised-button color="primary" class="send-button" [routerLink]="'/init'">Senden</button>
+          
+    </mat-card>
+    
+    
+</div>
+
+

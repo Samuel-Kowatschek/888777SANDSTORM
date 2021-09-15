@@ -1,0 +1,68 @@
+@use '~@angular/material' as mat;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.datepicker{
+    margin: 3em 0em 0em 12.5em;
+}
+
+h1{
+    font-size: 2.1rem;
+    margin: 0em 0em 1.5em 0em;
+    text-align: center;
+}
+
+.flexbox-panel {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.flex-item:nth-child(1) {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+.flex-item:nth-child(2) {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+.cards{
+    @include mat.elevation(4); 
+    padding-top: 3em;
+    display: inline-block;
+    width: 40em;
+    margin: 0em 1em 3em 1em;
+    background-color: white;
+    color: black;
+    height: 18em;
+    
+    
+}
+
+.message-form{
+    margin: 0;
+    width: 35em;
+}
+
+.email-box{
+    margin: 0;
+    width: 40em;
+
+}
+
+.commentary-box{
+    margin: 0;
+    width: 40em;
+}
+
+.send-button{
+   margin-left: 34em;
+
+}
+

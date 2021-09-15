@@ -1,0 +1,38 @@
+
+<div class="prototype-content-wrapper">
+    <h1 class="prototype-heading">
+        Lehrfächerverteilung starten
+    </h1>
+    <div class="flexbox-panel">
+        <p class="introduction">
+            Schaltfläche "Start" anklicken um die Lehrfächerverteilung für dieses Jahr zu starten. 
+            <br>Durch das anklicken der Schaltfläche werden E-Mails an alle Lehrer an die E-Mail Adressen der Lehrer geschickt, in denen sich ein TAN-Code befindet.
+            Mit diesem TAN-Code können sich die Lehrer nun auf dieser Seite anmelden und ihre Wünsche bezüglich Stundenverteilung, Klassenverteilung, etc. festlegen.  
+            <br>
+            <br>
+            Von hier an können Sie eine Liste mit dem aktuellen Status für jeden Lehrer einsehen, als auch dazugehörige Statistiken einsehen. Sie können die Lehrfächerverteilung auch jederzeit schließen und damit beenden und die Daten in Untis übertragen.
+
+        </p>
+
+
+        <div *ngIf="!wasStarted">
+            <button mat-raised-button color="primary" class="start-button" [routerLink]="'/init'">START</button>
+        </div>
+        <!--<div *ngIf="wasStarted" class="further-actions">
+            <button mat-stroked-button *ngIf="wasStarted">GESTARTET</button>
+            <br>Was wollen Sie als nächstes tun?
+            <br><a class="further-actions" [routerLink]="'/HodPrototype'">Homepage</a>
+            <br><a class="further-actions" [routerLink]="'/teacherlist'">Lehrerliste</a>
+            <br><a class="further-actions" >LFVT beenden</a>
+
+            <div>
+
+            </div>
+        </div>-->
+    
+        
+        
+    </div>
+    
+</div>
+

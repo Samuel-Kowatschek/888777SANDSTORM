@@ -1,0 +1,97 @@
+<h1 class="prototype-heading">
+  PROTOTYPE TEACHER WISHES
+</h1>
+<form class="example-form" [formGroup]="checkoutForm" (ngSubmit)="onClickSubmit()" *ngIf="loggedIn">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Company</mat-label>
+    <input matInput disabled value="HTL Leonding">
+  </mat-form-field>
+
+<!--hours to work-->
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>min hours</mat-label>
+      <input matInput type="number" formControlName="minHours">
+    </mat-form-field></td>
+
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>max hours</mat-label>
+      <input matInput type="number" formControlName="maxHours">
+    </mat-form-field></td>
+  </tr></table>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>hours in different school</mat-label>
+    <input matInput type="number" formControlName="hoursInDifSchool">
+  </mat-form-field>
+
+
+  <!--Priority of teaching-->
+  Erwünschte Gegenstände und Klassen (in der Reihenfolge der Dringlichkeit):
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Gegenstand</mat-label>
+      <mat-select [(value)]="selectedPrioritySubject">
+        <mat-option>--None--</mat-option>
+      <mat-option *ngFor="let s of subjects" [value]="s">{{s}}</mat-option>
+      </mat-select>
+    </mat-form-field></td>
+
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Klasse</mat-label>
+      <mat-select [(value)]="selectedPriorityClass">
+        <mat-option>-- None --</mat-option>
+        <mat-optgroup *ngFor="let group of schoolYears" [label]="group.name"
+                      [disabled]="group.disabled">
+          <mat-option *ngFor="let schoolClass of group.classes" [value]="schoolClass.viewValue">
+            {{schoolClass.viewValue}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field></td>
+  </tr></table>
+
+  <button mat-button class="button" (click)="addPriorityOfTeaching()">Add</button>
+
+  <mat-list>
+    <a mat-list-item *ngFor="let p of teachingPriorities">
+      {{p.subject}}  {{p.schoolClass}}
+    </a>
+  </mat-list>
+
+
+  <!--Klassenvorstandsfunktion-->
+  Ich möchte Klassenvorstand in der
+  <mat-form-field appearance="fill">
+    <mat-label>Klasse</mat-label>
+    <mat-select formControlName="wunschKlasse">
+      <mat-option>-- None --</mat-option>
+      <mat-optgroup *ngFor="let group of schoolYears" [label]="group.name"
+                    [disabled]="group.disabled">
+        <mat-option *ngFor="let schoolClass of group.classes" [value]="schoolClass.value">
+          {{schoolClass.viewValue}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field> sein.
+
+
+  <!--Additional Info-->
+  <a>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>additional info</mat-label>
+      <input matInput type="text" formControlName="addInfo">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>delete</mat-icon>
+      </button>
+    </mat-form-field>
+  </a>
+
+
+  <button mat-button class="button" type="submit">Submit</button>
+</form>
+
+<a *ngIf="!loggedIn">
+  You still need to login <button mat-button class="button" [routerLink]="'/Login'">Login</button>
+</a>
+
